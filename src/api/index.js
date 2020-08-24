@@ -1,6 +1,6 @@
 const express = require('express');
 const pokemon = require('./pokemon');
-
+const measure = require('./MeasureAPI');
 
 const router = express.Router();
 
@@ -12,4 +12,5 @@ router.get('/', (req, res) => {
 });
 
 router.use('/pokemon',pokemon);
+router.use('/measure',measure)
 module.exports = router;
