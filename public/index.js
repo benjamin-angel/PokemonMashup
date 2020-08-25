@@ -1,5 +1,5 @@
 const poke_container = document.getElementById('poke_container');
-const pokemons_number = 80;
+const pokemons_number = 35;
 const colors = {
 	normal: '#a8a878',
 	fire: '#f08030',
@@ -41,11 +41,19 @@ function createPokemonCard(pokemon) {
 	pokemonEl.classList.add('pokemon');
 
 	let pokemonId = pokemon.id;
-	const poke_types = pokemon.types.map(type => type.type.name);
-	const type = main_types.find(type => poke_types.indexOf(type) > -1);
+	// const poke_types = pokemon.types.map(type => type.type.name);
+	const type = pokemon.types[0].type.name;
+	let type2 = '';
+	if(pokemon.types[1] != undefined){
+		type2 = pokemon.types[1].type.name;
+	}
 	const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-	const color = colors[type];
-	
+	let color;
+	if(type == 'normal' && type2 != undefined){
+		color = colors[type2];
+	}else{
+		color = colors[type];
+	}
 	pokemonEl.style.backgroundColor = color;
 
 	if(pokemonId < 10){
@@ -53,6 +61,10 @@ function createPokemonCard(pokemon) {
 	}
 	else if(pokemonId < 100){
 		pokemonId = `0${pokemonId}`.toString();
+	}
+
+	if(type2 !=''){
+		type2 = `/${type2}`;
 	}
 	const pokeInnerHTML = `
         <div class="img-container"><img src="https://pokeres.bastionbot.org/images/pokemon/${
@@ -64,7 +76,7 @@ function createPokemonCard(pokemon) {
 							.toString()
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
-            <small class="type">Type: <span>${type}</span></small>
+            <small class="type">Type: <span>${type}${type2}</span></small>
         </div>
     `;
 
