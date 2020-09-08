@@ -102,7 +102,7 @@ function createPokemonCard(pokemon) {
 // });
 function OpenNewWindow(pokemon)
 {
-  window.open("file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html", "_self");
+  window.open(`file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html?name=${pokemon}`, "_self");
 }
 document.addEventListener("click", function(e){
   e = e || window.event;
