@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    height: 90%;
+    background: #EFEFBB;
+	background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
+	background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+}
+.tHalf{
+    height: 60%;
+}
+.halvsies{
+    height: 40%;
+}
+.lhalf{
+
+    float: left;
+    width: 50%;
+    background-color: #eee;
+	border-radius: 20px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	text-align: center;
+}
+.rhalf{
+    float: right;
+    width: 50%;
+    background-color: #eee;
+	border-radius: 20px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	text-align: center;
+
+}
