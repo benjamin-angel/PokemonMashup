@@ -85,52 +85,29 @@ function createPokemonCard(pokemon) {
   poke_container.appendChild(pokemonEl);
 }
 
-const searchBar = document.getElementById("searchTerm");
-searchBar.addEventListener("keyup", (e) => {
-  // console.log(searchBar.innerText);
-  // console.log(searchBar.value);
-  console.log(searchBar.value);
-  const pokemonCards = document.getElementsByClassName("name");
-  let searchVal = new RegExp("(" + searchBar.value + ")+", "img");
-  console.log(searchVal);
-  console.log(searchVal.test("Bulbasaur") + "Bulbasaur");
-  console.log(searchVal.test("Ivysaur") + "Ivysaur");
-  console.log(searchVal.test("Charmander") + "Charmander");
-  console.log(searchVal.test("Ekans") + "Ekans");
-  console.log(searchVal.test("Rayquaza") + "Rayquaza");
-  console.log(searchVal.test("Benjamin") + "Benjamin");
-
-  for (let i = 0; i <= pokemonCards.length; i++) {
-    //if(searchVal.)
-    // if(pokemonCards.item(i).innerHTML == searchVal){
-    // 	console.log("Found it");
-    // 	console.log(pokemonCards.item(i).innerHTML);
-    // 	break;
-    // }
-    // else{
-    // 	console.log("Didn't find it");
-    // }
-  }
-
-  // if(searchBar.value == pokemonCards.innerHTML)
-  // {
-  // 	console.log(pokemonCards.value);
-  // }
-  // else{
-  // 	console.log(searchBar.value);
-  // 	console.log('false', pokemonCards);
-  // }
-});
+// const searchBar = document.getElementById("searchTerm");
+// searchBar.addEventListener("keyup", (e) => {
+//   // console.log(searchBar.innerText);
+//   // console.log(searchBar.value);
+//   console.log(searchBar.value);
+//   const pokemonCards = document.getElementsByClassName("name");
+//   let searchVal = new RegExp("(" + searchBar.value + ")+", "img");
+//   console.log(searchVal);
+//   console.log(searchVal.test("Bulbasaur") + "Bulbasaur");
+//   console.log(searchVal.test("Ivysaur") + "Ivysaur");
+//   console.log(searchVal.test("Charmander") + "Charmander");
+//   console.log(searchVal.test("Ekans") + "Ekans");
+//   console.log(searchVal.test("Rayquaza") + "Rayquaza");
+//   console.log(searchVal.test("Benjamin") + "Benjamin");
+// });
 function OpenNewWindow(pokemon)
 {
   window.open("file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html", "_self");
 }
 document.addEventListener("click", function(e){
   e = e || window.event;
-  let target = e.target || e.srcElement, text = target.textContent || target.innerText;
-  console.log(e);
-  console.log(e.target.id);
-  OpenNewWindow(e.target.id);
+  let target = e.target || e.srcElement;
+  OpenNewWindow(target.id);
 },false);
   
 fetchPokemons();
