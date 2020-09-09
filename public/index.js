@@ -1,5 +1,5 @@
 const poke_container = document.getElementById("poke_container");
-const pokemons_number = 10;
+const pokemons_number = 5;
 const colors = {
   normal: "#a8a878",
   fire: "#f08030",
@@ -100,14 +100,17 @@ function createPokemonCard(pokemon) {
 //   console.log(searchVal.test("Rayquaza") + "Rayquaza");
 //   console.log(searchVal.test("Benjamin") + "Benjamin");
 // });
-function OpenNewWindow(pokemon)
+function OpenNewWindow(target)
 {
-  window.open(`file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html?name=${pokemon}`, "_self");
+  if(target.localName == 'div'){
+    window.open(`file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html?name=${target.id}`, "_self");
+  }
+
 }
 document.addEventListener("click", function(e){
   e = e || window.event;
   let target = e.target || e.srcElement;
-  OpenNewWindow(target.id);
+  OpenNewWindow(target);
 },false);
   
 fetchPokemons();

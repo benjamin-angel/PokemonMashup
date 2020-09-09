@@ -4,7 +4,6 @@
 * {
 	box-sizing: border-box;
 }
-
 body {
 	background: #EFEFBB;
 	background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
@@ -42,6 +41,7 @@ h1 {
 	justify-content: center;
 	margin: 0 auto;
 	max-width: 1200px;
+	pointer-events: none;
 }
 
 .pokemon {

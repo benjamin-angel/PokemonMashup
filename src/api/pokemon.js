@@ -7,13 +7,13 @@ const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 let cacheData = [];
 let cacheTime;
 router.get("/", async (req, res, next) => {
-  try {
-      let query = '?limit=1048'
-    const { data } = await axios.get(BASE_URL+query);
-    res.json(data);
-  } catch (error) {
-    next(error);
-  }
+  // try {
+  //     let query = '?limit=1048'
+  //   const { data } = await axios.get(BASE_URL+query);
+  //   res.json(data);
+  // } catch (error) {
+  //   next(error);
+  // }
 });
 router.get("/cache", (req, res) => {
   try {
