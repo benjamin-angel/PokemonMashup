@@ -1,5 +1,5 @@
 const poke_container = document.getElementById("poke_container");
-const pokemons_number = 5;
+const pokemons_number = 18;
 const colors = {
   normal: "#a8a878",
   fire: "#f08030",

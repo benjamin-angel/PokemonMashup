@@ -1,70 +1,69 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-html{
-    height: 90%;
+html {
+  height: 90%;
 }
-body{
-    height: 50%;
-    background: #EFEFBB;
-	background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
-	background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+body {
+  height: 50%;
+  background: #efefbb;
+  background: -webkit-linear-gradient(to right, #d4d3dd, #efefbb);
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
 }
-.tHalf{
-    height: 30%;
+.tHalf {
+  height: 30%;
 }
-.halvsies{
-    height: 40%;
+.halvsies {
+  height: 40%;
 }
-.lhalf{
-
-    float: left;
-    width: 50%;
-    background-color: #eee;
-	border-radius: 20px;
-	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-	text-align: center;
+.lhalf {
+  float: left;
+  width: 50%;
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  text-align: center;
 }
-.rhalf{
-    float: right;
-    width: 50%;
-    background-color: #eee;
-	border-radius: 20px;
-	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-	text-align: center;
-
-}
-.grid-container{
-    display:grid;
-    grid-template-columns: auto auto;
-    background-color: lightslategray;
-}
-.grid-item{
-    background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+.rhalf {
+  float: right;
+  width: 50%;
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   text-align: center;
 }
 
- img{
-    max-width: 60%;
-    height:auto;
-    float: left;
-    padding: 2px;
-} 
-img .smallImage{
-    width: 300px;
-    height: 300px;
-    float: right;
-    align-items: right;
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.grid-item {
+  background-color:#eeeebc;
+  text-align: center;
 }
 
-p{
-    text-align: left;
-    padding: 1;
-    margin: 0;
+img {
+  max-width: 60%;
+  height: auto;
+  float: left;
+  padding: 2px;
+}
+/* img .smallImage {
+  width: 300px;
+  height: 300px;
+  float: right;
+  align-items: right;
+} */
+
+
+p {
+  text-align: left;
+  padding: 1;
+  margin: 0;
+}
+tr {
+  text-align: left;
 }
