@@ -46,7 +46,7 @@ body {
 }
 
 img {
-  max-width: 60%;
+  max-width: 100%;
   height: auto;
   float: left;
   padding: 2px;
@@ -57,7 +57,27 @@ img {
   float: right;
   align-items: right;
 } */
-
+.etsy{
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.103);
+  height: 100px;
+  margin: auto;
+  text-align: center;
+}
+.etsy:hover{
+  cursor: pointer;
+  background-color: khaki;
+  transform: scale(1.05);
+}
+.etsy-img-container{
+  float: left;
+}
+/* .etsy-info{
+  float: right;
+  align-content: center;
+  text-align: right;
+} */
 
 p {
   text-align: left;

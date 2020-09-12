@@ -13,14 +13,23 @@
     </section>
     <section class="halvsies">
         <article class="lhalf">
-            <h1>Left</h1>
+            <h1>Pokemon Information</h1>
             <div id="pokemonInfo" class="pokemonInfo">
             </div>
         </article>
         <article class="rhalf">
-            <h1>right</h1>
+            <h1>Etsy products</h1>
+            <label for="sortOrder">Sort by:</label>
+            <select name="sortOrder" id="sortOrder">
+                <option value="score">Score</option>
+                <option value="price">Price</option>
+                <option value="created">Created</option>
+            </select>
+            <button id="submitSort" type="submit"></button>
+            <div id="etsyDiv" class="etsyDiv"></div>
         </article>
     </section>
 </body>
 <script src="pokemon.js"></script>
+<script src="etsy.js"></script>
 </html>

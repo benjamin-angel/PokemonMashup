@@ -2,7 +2,7 @@ const getPokemon = async (id) => {
   const url = `http://localhost:3000/api/v1/pokemon/${id}`;
   const res = await fetch(url);
   const cachedData = await res.json();
-  console.log(cachedData);
+  // console.log(cachedData);
   FillInfo(cachedData);
 };
 function FillInfo(pokemon) {
@@ -16,7 +16,7 @@ function FillInfo(pokemon) {
   pokemonEl.classList.add("pokemon");
   pokemonEl.id = `${pokemon.name}`;
 
-  console.log(pokemon);
+  // console.log(pokemon);
   const pokeInnerHTML = `
         <div class="img-container"><img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" alt="${pokemonEl.id}" />
         </div>
@@ -34,14 +34,14 @@ function appendInfo(pokemon) {
   const pokeInfo = document.getElementById("info");
   const pokemonName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
   const infoInnerHtml = `
-    <p>Name: ${pokemonName}</p>
-    <p>#: ${pokemon.id}</p>
-    <p>Height: ${pokemon.height}</p>
-    <p>Weight: ${pokemon.weight}</p>
-    <p>Base Experience: ${pokemon.base_experience}</p>
+    <p><b>Name</b>: ${pokemonName}</p>
+    <p><b>#</b>: ${pokemon.id}</p>
+    <p><b>Height</b>: ${pokemon.height}</p>
+    <p><b>Weight</b>: ${pokemon.weight}</p>
+    <p><b>Base Experience</b>: ${pokemon.base_experience}</p>
     
     <br>
-    <p>Starting stats:</p>
+    <p><b>Starting stats</b>:</p>
     <table>
     <tr>
     <td>Health points: </td>
@@ -64,20 +64,20 @@ function appendInfo(pokemon) {
     <td>${pokemon.stats[4].base_stat}</td>
     </tr>
     <tr>
-    <td>Speed :</td>
+    <td>Speed:</td>
     <td>${pokemon.stats[5].base_stat}</td>
     </tr>
     </table>
-    <p>Games found in: ${pokemon.name}</p>
+    <p><b>Games found in</b>: ${pokemon.name}</p>
     
     <br>
     <div class="grid-container">
-    <p>Back Default:</p>
-    <p>Back Shiny:</p>
+    <p><b>Back Default</b>:</p>
+    <p><b>Back Shiny</b>:</p>
     <img class="smallImage grid-item" src='${pokemon.sprites.back_default} '></img>
     <img class="smallImage grid-item" src='${pokemon.sprites.back_shiny}'></img>
-    <p>Front Default:</p>
-    <p>Front Shiny:</p>
+    <p><b>Front Default</b>:</p>
+    <p><b>Front Shiny</b>:</p>
     <img class="smallImage grid-item" src='${pokemon.sprites.front_default}'></img>
     <img class="smallImage grid-item" src='${pokemon.sprites.front_shiny}'></img>
     </div>
