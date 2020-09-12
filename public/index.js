@@ -100,17 +100,22 @@ function createPokemonCard(pokemon) {
 //   console.log(searchVal.test("Rayquaza") + "Rayquaza");
 //   console.log(searchVal.test("Benjamin") + "Benjamin");
 // });
-function OpenNewWindow(target)
-{
-  if(target.localName == 'div'){
-    window.open(`file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html?name=${target.id}`, "_self");
+function OpenNewWindow(target) {
+  if (target.localName == "div") {
+    window.open(
+      `file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html?name=${target.id}`,
+      "_self"
+    );
   }
-
 }
-document.addEventListener("click", function(e){
-  e = e || window.event;
-  let target = e.target || e.srcElement;
-  OpenNewWindow(target);
-},false);
-  
+document.addEventListener(
+  "click",
+  function (e) {
+    e = e || window.event;
+    let target = e.target || e.srcElement;
+    OpenNewWindow(target);
+  },
+  false
+);
+
 fetchPokemons();

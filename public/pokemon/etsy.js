@@ -2,7 +2,7 @@ let currentPokemon;
 
 let submitButton = document.getElementById("submitSort");
 submitButton.onclick = () => {
-    let selectionValue = document.getElementById("sortOrder").value;
+  let selectionValue = document.getElementById("sortOrder").value;
   changePokemonResults(currentPokemon, selectionValue);
 };
 

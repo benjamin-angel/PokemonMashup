@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pokemon.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pokemon.css" />
     <title></title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="tHalf">
-        <h1 id="pokeh1">Here</h1>
-        <div id="poke_container" class="poke-container"></div>
+      <h1 id="pokeh1">Here</h1>
+      <div id="poke_container" class="poke-container"></div>
     </section>
     <section class="halvsies">
-        <article class="lhalf">
-            <h1>Pokemon Information</h1>
-            <div id="pokemonInfo" class="pokemonInfo">
-            </div>
-        </article>
-        <article class="rhalf">
-            <h1>Etsy products</h1>
-            <label for="sortOrder">Sort by:</label>
-            <select name="sortOrder" id="sortOrder">
-                <option value="score">Score</option>
-                <option value="price">Price</option>
-                <option value="created">Created</option>
-            </select>
-            <button id="submitSort" type="submit"></button>
-            <div id="etsyDiv" class="etsyDiv"></div>
-        </article>
+      <article class="lhalf">
+        <h1>Pokemon Information</h1>
+        <div id="pokemonInfo" class="pokemonInfo"></div>
+      </article>
+      <article class="rhalf">
+        <h1>Etsy products</h1>
+        <div id="sort-div">
+          <label for="sortOrder">Sort by:</label>
+          <select name="sortOrder" id="sortOrder">
+            <option value="score">Score</option>
+            <option value="price">Price</option>
+            <option value="created">Created</option>
+          </select>
+          <button id="submitSort" type="submit"></button>
+        </div>
+        <div id="display-num-div">
+          <label for="displayNum">Display: </label>
+          <select name="displayNum" id="displayNum">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
+          </select>
+          <button id="submitSort" type="submit"></button>
+        </div>
+        <div id="etsyDiv" class="etsyDiv"></div>
+      </article>
     </section>
-</body>
-<script src="pokemon.js"></script>
-<script src="etsy.js"></script>
+  </body>
+  <script src="pokemon.js"></script>
+  <script src="etsy.js"></script>
 </html>

@@ -41,7 +41,7 @@ body {
   grid-template-columns: auto auto;
 }
 .grid-item {
-  background-color:#eeeebc;
+  background-color: #eeeebc;
   text-align: center;
 }
 
@@ -57,7 +57,7 @@ img {
   float: right;
   align-items: right;
 } */
-.etsy{
+.etsy {
   padding: 10px;
   margin: 10px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.103);
@@ -65,12 +65,12 @@ img {
   margin: auto;
   text-align: center;
 }
-.etsy:hover{
+.etsy:hover {
   cursor: pointer;
   background-color: khaki;
   transform: scale(1.05);
 }
-.etsy-img-container{
+.etsy-img-container {
   float: left;
 }
 /* .etsy-info{
