@@ -114,3 +114,7 @@ h1 {
   float: left;
   /* margin-left: 4%; */
 }
+#nextPage{
+  padding: 10px;
+  margin: 10px;
+}

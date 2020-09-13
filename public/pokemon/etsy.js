@@ -13,12 +13,13 @@ function createEtsyCard(etsyListing) {
   etsyEl.classList.add("etsy");
   const etsyInnerHTML = `
     <div class="etsy-img-container"><img src="${item.Images[0].url_75x75}"/>
+    
     </div>
     <div class="etsy-info">
     <p>${item.title}</p>
     <p>${item.price}${item.currency_code}</p>
     </div>
-    <br>
+    <a href="${item.url}"></a>
 `;
   etsyEl.innerHTML = etsyInnerHTML;
   rightContainer.appendChild(etsyEl);
@@ -28,7 +29,6 @@ async function getPokemonResults(pokemon) {
   const url = `http://localhost:3000/api/v1/etsy/${pokemon}`;
   const res = await fetch(url);
   const pokemonData = await res.json();
-  console.log(pokemonData);
   for (let i = 0; i < pokemonData.results.length; i++) {
     createEtsyCard(pokemonData.results[i]);
   }
@@ -36,11 +36,9 @@ async function getPokemonResults(pokemon) {
 async function changePokemonResults(pokemon, query) {
   let etsyDiv = document.getElementById("etsyDiv");
   etsyDiv.innerHTML = "";
-  console.log(query);
   const url = `http://localhost:3000/api/v1/etsy/${pokemon}&sort_on=${query}`;
   const res = await fetch(url);
   const pokemonData = await res.json();
-  console.log(pokemonData);
 
   for (let i = 0; i < pokemonData.results.length; i++) {
     createEtsyCard(pokemonData.results[i]);
@@ -58,6 +56,24 @@ function getUrl() {
   currentPokemon = data.name;
   getPokemonResults(data.name);
 }
+function OpenNewWindow(target){
+  if(target.className == "etsy" ){
+    window.open(
+      `${target.children[2].href}`);
+  }else if(target.className == "etsy-info"){
+    window.open(
+      `${target.parentElement.children[2].href}`);
+  }
+}
+
+document.addEventListener(
+  "click",
+  function (e) {
+    e = e || window.event;
+    let target = e.target || e.srcElement;
+    OpenNewWindow(target);
+  },
+  false
+);
 
 getUrl();
-// getPokemonResults(document.getElementById('pokeh1').innerText);

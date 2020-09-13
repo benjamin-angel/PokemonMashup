@@ -1,5 +1,6 @@
 const poke_container = document.getElementById("poke_container");
-const pokemons_number = 18;
+let pokemons_number = 0;
+let pokemon_offset = 0;
 const colors = {
   normal: "#a8a878",
   fire: "#f08030",
@@ -22,13 +23,76 @@ const colors = {
   "???": "#68a090",
 };
 const main_types = Object.keys(colors);
+let perPage = document.getElementById("perPage");
+let nextPage = document.getElementById("nextPage");
 
+/**
+ * Function used to determine when the amount of objects to display per page has been changed
+ * Being uncomfortable with pure javascript I am reloading the page and adding query parameters
+ */
+perPage.addEventListener("change", () => {
+  pokemons_number = document.getElementById("perPage").value;
+  let url =
+    "file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/index.html";
+  window.open(`${url}?perPage=${pokemons_number}`, "_self");
+});
+
+/**
+ * Function used to determine when the next page button has been clicked to display next x amound of pokemon
+ * Being uncomfortable with pure javascript I am reloading the page and adding query parameters
+ */
+nextPage.addEventListener("click", () => {
+  pokemon_offset = pokemons_number;
+  let url =
+    "file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/index.html";
+  window.open(
+    `${url}?perPage=${pokemons_number}&offset=${pokemon_offset}`,
+    "_self"
+  );
+});
+
+/**
+ * Reading the url and checking for any additional parameters
+ */
+function checkUrlParams() {
+  try {
+    let url = document.location.href,
+      params = url.split("?")[1].split("&"),
+      data = {},
+      tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+      tmp = params[i].split("=");
+      data[tmp[0]] = tmp[1];
+    }
+    pokemons_number = parseInt(data.perPage);
+    if (data.offset >= 0) {
+      pokemon_offset = parseInt(data.offset);
+    }
+  } catch (error) {
+    pokemons_number = 15;
+  }
+}
+
+/**
+ * Function to send off specific pokemon id's to retrieve all of that pokemons information and store it in the backend cache for later use
+ * in case the person clicks on that pokemon to display their information
+ */
 const fetchPokemons = async () => {
-  for (let i = 1; i <= pokemons_number; i++) {
-    await getPokemon(i);
+  if (pokemon_offset != 0) {
+    numberOffset = pokemons_number + pokemon_offset;
+    for (let i = pokemon_offset; i <= numberOffset; i++) {
+      await getPokemon(i);
+    }
+  } else {
+    for (let i = 1; i <= pokemons_number; i++) {
+      await getPokemon(i);
+    }
   }
 };
-
+/**
+ * Function that connects to my backend server and serves up pokemon information
+ * @param {*} id - pokemon number id
+ */
 const getPokemon = async (id) => {
   const url = `http://localhost:3000/api/v1/pokemon/${id}`;
   const res = await fetch(url);
@@ -36,6 +100,10 @@ const getPokemon = async (id) => {
   createPokemonCard(pokemon);
 };
 
+/**
+ * function to create the visual pokemon cards
+ * @param {*} pokemon - pokemon information
+ */
 function createPokemonCard(pokemon) {
   const pokemonEl = document.createElement("div");
   pokemonEl.classList.add("pokemon");
@@ -84,22 +152,11 @@ function createPokemonCard(pokemon) {
 
   poke_container.appendChild(pokemonEl);
 }
-
-// const searchBar = document.getElementById("searchTerm");
-// searchBar.addEventListener("keyup", (e) => {
-//   // console.log(searchBar.innerText);
-//   // console.log(searchBar.value);
-//   console.log(searchBar.value);
-//   const pokemonCards = document.getElementsByClassName("name");
-//   let searchVal = new RegExp("(" + searchBar.value + ")+", "img");
-//   console.log(searchVal);
-//   console.log(searchVal.test("Bulbasaur") + "Bulbasaur");
-//   console.log(searchVal.test("Ivysaur") + "Ivysaur");
-//   console.log(searchVal.test("Charmander") + "Charmander");
-//   console.log(searchVal.test("Ekans") + "Ekans");
-//   console.log(searchVal.test("Rayquaza") + "Rayquaza");
-//   console.log(searchVal.test("Benjamin") + "Benjamin");
-// });
+/**
+ * Function that determines what pokemon has been selected and adds that query to the url of the
+ * next page to be displayed
+ * @param {*} target 
+ */
 function OpenNewWindow(target) {
   if (target.localName == "div") {
     window.open(
@@ -108,6 +165,9 @@ function OpenNewWindow(target) {
     );
   }
 }
+/**
+ * Function to determine what has been clicked on to open a new page
+ */
 document.addEventListener(
   "click",
   function (e) {
@@ -118,4 +178,5 @@ document.addEventListener(
   false
 );
 
+checkUrlParams();
 fetchPokemons();

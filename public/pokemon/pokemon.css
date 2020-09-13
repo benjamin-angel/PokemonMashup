@@ -13,8 +13,26 @@ body {
   background: -webkit-linear-gradient(to right, #d4d3dd, #efefbb);
   background: linear-gradient(to right, #d4d3dd, #efefbb);
 }
+
 .tHalf {
   height: 30%;
+}
+#pokeh1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+
+}
+#sort-div{
+  align-content: right;
+}
+.submitButton{
+  height: 20px;
+  width: 45px;
+  padding: 0;
+  margin: 0;
 }
 .halvsies {
   height: 40%;
@@ -50,6 +68,7 @@ img {
   height: auto;
   float: left;
   padding: 2px;
+  pointer-events: none;
 }
 /* img .smallImage {
   width: 300px;
@@ -72,6 +91,7 @@ img {
 }
 .etsy-img-container {
   float: left;
+  pointer-events: none;
 }
 /* .etsy-info{
   float: right;
@@ -83,7 +103,10 @@ p {
   text-align: left;
   padding: 1;
   margin: 0;
+  pointer-events: none;
 }
 tr {
   text-align: left;
 }
+
+

@@ -96,6 +96,7 @@ window.onload = function () {
     data[tmp[0]] = tmp[1];
   }
   console.log(data.name);
-  document.getElementById("pokeh1").innerHTML = data.name;
+  
+  document.getElementById("pokeh1").innerHTML = data.name[0].toUpperCase() + data.name.slice(1)
   getPokemon(data.name);
 };
