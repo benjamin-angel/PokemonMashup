@@ -4,6 +4,7 @@ const etsy = require("./etsy");
 
 const router = express.Router();
 
+
 router.get("/", (req, res) => {
   res.json({
     message: "From here I need to make pokemon accessible",

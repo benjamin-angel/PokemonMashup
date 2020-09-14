@@ -1,5 +1,5 @@
 const getPokemon = async (id) => {
-  const url = `http://localhost:3000/api/v1/pokemon/${id}`;
+  const url = `http://localhost:8000/api/v1/pokemon/${id}`;
   const res = await fetch(url);
   const cachedData = await res.json();
   // console.log(cachedData);
@@ -68,7 +68,6 @@ function appendInfo(pokemon) {
     <td>${pokemon.stats[5].base_stat}</td>
     </tr>
     </table>
-    <p><b>Games found in</b>: ${pokemon.name}</p>
     
     <br>
     <div class="grid-container">

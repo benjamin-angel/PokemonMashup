@@ -94,7 +94,7 @@ const fetchPokemons = async () => {
  * @param {*} id - pokemon number id
  */
 const getPokemon = async (id) => {
-  const url = `http://localhost:3000/api/v1/pokemon/${id}`;
+  const url = `http://localhost:8000/api/v1/pokemon/${id}`;
   const res = await fetch(url);
   const pokemon = await res.json();
   createPokemonCard(pokemon);
@@ -159,8 +159,9 @@ function createPokemonCard(pokemon) {
  */
 function OpenNewWindow(target) {
   if (target.localName == "div") {
+    let url = document.location.href;
     window.open(
-      `file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/pokemon/pokemon.html?name=${target.id}`,
+      `${url}/pokemon/pokemon.html?name=${target.id}`,
       "_self"
     );
   }
