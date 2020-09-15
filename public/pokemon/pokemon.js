@@ -1,5 +1,16 @@
+let baseURL;
+function splitURL(){
+  let url = document.location.href;
+  let lastSlash = url.lastIndexOf('/');
+  url = url.slice(0,lastSlash);
+  lastSlash = url.lastIndexOf('/');
+  url = url.slice(0,lastSlash);
+  console.log('url is ' +url);
+  baseURL = url;
+}
 const getPokemon = async (id) => {
-  const url = `http://localhost:8000/api/v1/pokemon/${id}`;
+  console.log("inside get pokemon" + baseURL)
+  const url = `${baseURL}/api/v1/pokemon/${id}`;
   const res = await fetch(url);
   const cachedData = await res.json();
   // console.log(cachedData);
@@ -85,7 +96,7 @@ function appendInfo(pokemon) {
   pokeInfo.innerHTML = infoInnerHtml;
 }
 
-window.onload = function () {
+function getUrl() {
   let url = document.location.href,
     params = url.split("?")[1].split("&"),
     data = {},
@@ -96,6 +107,10 @@ window.onload = function () {
   }
   console.log(data.name);
   
-  document.getElementById("pokeh1").innerHTML = data.name[0].toUpperCase() + data.name.slice(1)
+  document.getElementById("pokeh1").innerHTML = data.name[0].toUpperCase() + data.name.slice(1);
+  console.log(baseURL);
   getPokemon(data.name);
 };
+
+splitURL();
+getUrl();

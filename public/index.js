@@ -1,6 +1,7 @@
 const poke_container = document.getElementById("poke_container");
 let pokemons_number = 0;
 let pokemon_offset = 0;
+let baseURL;
 const colors = {
   normal: "#a8a878",
   fire: "#f08030",
@@ -26,15 +27,21 @@ const main_types = Object.keys(colors);
 let perPage = document.getElementById("perPage");
 let nextPage = document.getElementById("nextPage");
 
+function splitURL(){
+  let url = document.location.href;
+  let lastSlash = url.lastIndexOf('/');
+  url = url.slice(0,lastSlash);
+  console.log('url is ' +url);
+  baseURL = url;
+}
 /**
  * Function used to determine when the amount of objects to display per page has been changed
  * Being uncomfortable with pure javascript I am reloading the page and adding query parameters
  */
 perPage.addEventListener("change", () => {
   pokemons_number = document.getElementById("perPage").value;
-  let url =
-    "file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/index.html";
-  window.open(`${url}?perPage=${pokemons_number}`, "_self");
+  console.log(baseURL);
+  window.open(`${baseURL}?perPage=${pokemons_number}`, "_self");
 });
 
 /**
@@ -43,10 +50,8 @@ perPage.addEventListener("change", () => {
  */
 nextPage.addEventListener("click", () => {
   pokemon_offset = pokemons_number;
-  let url =
-    "file:///D:/Uni/Cab432-CloudComputing/Assignment1-Express/public/index.html";
-  window.open(
-    `${url}?perPage=${pokemons_number}&offset=${pokemon_offset}`,
+    window.open(
+    `${baseURL}?perPage=${pokemons_number}&offset=${pokemon_offset}`,
     "_self"
   );
 });
@@ -94,7 +99,8 @@ const fetchPokemons = async () => {
  * @param {*} id - pokemon number id
  */
 const getPokemon = async (id) => {
-  const url = `http://localhost:8000/api/v1/pokemon/${id}`;
+  console.log(baseURL);
+  const url = `${baseURL}/api/v1/pokemon/${id}`;
   const res = await fetch(url);
   const pokemon = await res.json();
   createPokemonCard(pokemon);
@@ -159,9 +165,8 @@ function createPokemonCard(pokemon) {
  */
 function OpenNewWindow(target) {
   if (target.localName == "div") {
-    let url = document.location.href;
     window.open(
-      `${url}/pokemon/pokemon.html?name=${target.id}`,
+      `${baseURL}/pokemon/pokemon.html?name=${target.id}`,
       "_self"
     );
   }
@@ -180,4 +185,5 @@ document.addEventListener(
 );
 
 checkUrlParams();
+splitURL();
 fetchPokemons();

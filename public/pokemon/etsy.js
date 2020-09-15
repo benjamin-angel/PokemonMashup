@@ -1,11 +1,20 @@
 let currentPokemon;
-
+let thebaseURL;
 let submitButton = document.getElementById("submitSort");
 submitButton.onclick = () => {
   let selectionValue = document.getElementById("sortOrder").value;
   changePokemonResults(currentPokemon, selectionValue);
 };
 
+function splitURL(){
+  let url = document.location.href;
+  let lastSlash = url.lastIndexOf('/');
+  url = url.slice(0,lastSlash);
+  lastSlash = url.lastIndexOf('/');
+  url = url.slice(0,lastSlash);
+  console.log('url is ' +url);
+  thebaseURL = url;
+}
 function createEtsyCard(etsyListing) {
   let item = etsyListing;
   const rightContainer = document.getElementById("etsyDiv");
@@ -26,7 +35,7 @@ function createEtsyCard(etsyListing) {
 }
 
 async function getPokemonResults(pokemon) {
-  const url = `http://localhost:8000/api/v1/etsy/${pokemon}`;
+  const url = `${thebaseURL}/api/v1/etsy/${pokemon}`;
   const res = await fetch(url);
   const pokemonData = await res.json();
   for (let i = 0; i < pokemonData.results.length; i++) {
@@ -36,7 +45,7 @@ async function getPokemonResults(pokemon) {
 async function changePokemonResults(pokemon, query) {
   let etsyDiv = document.getElementById("etsyDiv");
   etsyDiv.innerHTML = "";
-  const url = `http://localhost:8000/api/v1/etsy/${pokemon}&sort_on=${query}`;
+  const url = `${thebaseURL}/api/v1/etsy/${pokemon}&sort_on=${query}`;
   const res = await fetch(url);
   const pokemonData = await res.json();
 
@@ -75,5 +84,5 @@ document.addEventListener(
   },
   false
 );
-
+splitURL();
 getUrl();
