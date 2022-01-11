@@ -44,6 +44,7 @@ router.get("/:id", async (req, res, next) => {
     } else {
       console.log("in else");
       const { data } = await axios.get(BASE_URL + query);
+      console.log("🚀 ~ file: pokemon.js ~ line 47 ~ router.get ~ data", data)
 
       cacheData.push(data);
       console.log(cacheData.length);

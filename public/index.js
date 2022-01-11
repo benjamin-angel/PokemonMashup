@@ -140,10 +140,10 @@ function createPokemonCard(pokemon) {
   if (type2 != "") {
     type2 = `/${type2}`;
   }
+
+  //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonEl.id}.png"
   const pokeInnerHTML = `
-        <div class="img-container"><img src="https://pokeres.bastionbot.org/images/pokemon/${
-          pokemon.id
-        }.png" alt="${name}" />
+        <div class="img-container"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" />
         </div>
         <div class="info">
             <span class="number">#${pokemon.id

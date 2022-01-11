@@ -12,11 +12,14 @@ const getPokemon = async (id) => {
   console.log("inside get pokemon" + baseURL)
   const url = `${baseURL}/api/v1/pokemon/${id}`;
   const res = await fetch(url);
+  console.log("🚀 ~ file: pokemon.js ~ line 15 ~ getPokemon ~ res", res)
   const cachedData = await res.json();
-  // console.log(cachedData);
+  console.log("🚀 ~ file: pokemon.js ~ line 17 ~ getPokemon ~ cachedData", cachedData)
+  console.log(cachedData);
   FillInfo(cachedData);
 };
 function FillInfo(pokemon) {
+  console.log("🚀 ~ file: pokemon.js ~ line 22 ~ FillInfo ~ pokemon", pokemon)
   const poke_container = document.getElementById("pokemonInfo");
   const pokemonEl = document.createElement("div");
 
@@ -29,7 +32,7 @@ function FillInfo(pokemon) {
 
   // console.log(pokemon);
   const pokeInnerHTML = `
-        <div class="img-container"><img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" alt="${pokemonEl.id}" />
+        <div class="img-container"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${pokemonEl.id}" />
         </div>
         <div id="info" class="info">
         <p id="pokeInfo"></p
